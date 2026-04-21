@@ -383,11 +383,11 @@ input::placeholder, textarea::placeholder {
   background-color: #ffffff;
 }
 .toggle-btn.active.borrow {
-  background-color: var(--danger-color);
+  background-color: var(--success-color);
   color: white;
 }
 .toggle-btn.active.payback {
-  background-color: var(--success-color);
+  background-color: var(--danger-color);
   color: white;
 }
 

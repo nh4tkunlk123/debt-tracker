@@ -108,7 +108,7 @@ export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen
           </div>
         </div>
 
-        <div className="amount-display" style={{ color: txType === 'borrow' ? 'var(--danger-color)' : 'var(--success-color)' }}>
+        <div className="amount-display" style={{ color: txType === 'borrow' ? 'var(--success-color)' : 'var(--danger-color)' }}>
           {txAmount ? parseInt(txAmount, 10).toLocaleString() : '0'}
         </div>
 
