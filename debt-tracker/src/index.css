@@ -229,16 +229,16 @@ input::placeholder, textarea::placeholder {
 .numpad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 16px;
+  gap: 8px;
+  margin-top: 8px;
 }
 .numpad-btn {
   background-color: var(--bg-tertiary);
   color: var(--text-primary);
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
-  height: 64px;
-  border-radius: var(--radius-md);
+  height: 50px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,7 +254,7 @@ input::placeholder, textarea::placeholder {
 .numpad-quick {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 8px;
   overflow-x: auto;
   padding-bottom: 4px;
 }
@@ -303,19 +303,19 @@ input::placeholder, textarea::placeholder {
 
 /* Amount Input */
 .amount-display {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 700;
   text-align: center;
-  margin: 20px 0;
-  min-height: 60px;
+  margin: 12px 0;
+  min-height: 50px;
   word-break: break-all;
 }
 .amount-type-toggle {
   display: flex;
   background-color: var(--bg-tertiary);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .toggle-btn {
   flex: 1;

@@ -81,10 +81,10 @@ export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen
           value={selectedPersonId} 
           onChange={(e) => setSelectedPersonId(e.target.value)}
           style={{
-            width: '100%', padding: '16px', borderRadius: 'var(--radius-md)', 
+            width: '100%', padding: '12px 16px', borderRadius: 'var(--radius-sm)', 
             backgroundColor: 'var(--bg-tertiary)', color: 'var(--text-primary)', 
-            border: 'none', marginBottom: '16px', fontSize: '17px',
-            WebkitAppearance: 'none'
+            border: 'none', marginBottom: '12px', fontSize: '16px',
+            WebkitAppearance: 'none', fontWeight: '600'
           }}
         >
           <option value="" disabled>{t('selectPerson')}</option>
@@ -117,7 +117,7 @@ export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen
           placeholder={t('noteTx')}
           value={txNote}
           onChange={(e) => setTxNote(e.target.value)}
-          style={{ marginBottom: '16px' }}
+          style={{ padding: '12px 16px', fontSize: '16px', borderRadius: 'var(--radius-sm)' }}
         />
 
         <NumberPad 
@@ -127,10 +127,15 @@ export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen
         />
 
         <button 
-          className="btn-primary mt-4" 
+          className="btn-primary" 
           onClick={handleSaveTransaction}
           disabled={!txAmount || txAmount === '0' || !selectedPersonId}
-          style={{ opacity: (!txAmount || txAmount === '0' || !selectedPersonId) ? 0.5 : 1 }}
+          style={{ 
+            opacity: (!txAmount || txAmount === '0' || !selectedPersonId) ? 0.5 : 1,
+            marginTop: '12px',
+            padding: '14px',
+            borderRadius: 'var(--radius-sm)'
+          }}
         >
           {t('save')}
         </button>
