@@ -2,3 +2,7 @@ auto-mailer/
 .agent/
 .shared/
 runs.json
+node_modules/
+.env*
+dist/
+links.json
