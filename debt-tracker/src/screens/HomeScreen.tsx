@@ -5,7 +5,8 @@ import { useTheme } from '../store/ThemeContext';
 import { PersonCard } from '../components/PersonCard';
 import { BottomSheet } from '../components/BottomSheet';
 import { AddTransactionSheet } from '../components/AddTransactionSheet';
-import { Plus, Users, Zap, Globe, Sun, Moon } from 'lucide-react';
+import { SettingsSheet } from '../components/SettingsSheet';
+import { Plus, Users, Zap, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { triggerHaptic } from '../utils/haptics';
 
@@ -15,6 +16,7 @@ export const HomeScreen: React.FC = () => {
   const { isDark, setTheme } = useTheme();
   const [isAddPersonOpen, setIsAddPersonOpen] = useState(false);
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [newPersonName, setNewPersonName] = useState('');
   const [newPersonNote, setNewPersonNote] = useState('');
   const [initialAmount, setInitialAmount] = useState('');
@@ -57,17 +59,10 @@ export const HomeScreen: React.FC = () => {
           <h1>{t('appTitle')}</h1>
           <div className="flex items-center gap-4">
             <button 
-              onClick={() => { triggerHaptic('light'); setTheme(isDark ? 'light' : 'dark'); }}
+              onClick={() => { triggerHaptic('light'); setIsSettingsOpen(true); }}
               style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center' }}
             >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button 
-              onClick={toggleLang}
-              style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '14px', fontWeight: 'bold' }}
-            >
-              <Globe size={18} />
-              {lang.toUpperCase()}
+              <Settings size={22} />
             </button>
             <button 
               onClick={() => { triggerHaptic('light'); setIsAddPersonOpen(true); }}
@@ -226,6 +221,11 @@ export const HomeScreen: React.FC = () => {
         isOpen={isQuickAddOpen}
         onClose={() => setIsQuickAddOpen(false)}
         defaultPersonId={lastUsedPersonId}
+      />
+
+      <SettingsSheet
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
       />
     </div>
   );
