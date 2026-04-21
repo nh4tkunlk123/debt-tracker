@@ -27,13 +27,15 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose, title
       <div className="bottom-sheet-overlay" onClick={onClose} />
       <div className="bottom-sheet">
         <div className="bottom-sheet-handle" />
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-center mb-4" style={{ flexShrink: 0 }}>
           <h3 className="font-semibold">{title}</h3>
           <button onClick={onClose} className="p-2" style={{ backgroundColor: 'var(--bg-tertiary)', borderRadius: '50%' }}>
             <X size={20} color="var(--text-secondary)" />
           </button>
         </div>
-        {children}
+        <div style={{ overflowY: 'auto', flex: 1, paddingBottom: '24px' }}>
+          {children}
+        </div>
       </div>
     </>
   );

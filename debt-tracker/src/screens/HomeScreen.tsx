@@ -151,7 +151,6 @@ export const HomeScreen: React.FC = () => {
             placeholder={t('name')}
             value={newPersonName}
             onChange={(e) => setNewPersonName(e.target.value)}
-            autoFocus
           />
           <input
             type="text"
