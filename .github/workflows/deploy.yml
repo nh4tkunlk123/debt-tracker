@@ -29,7 +29,7 @@ jobs:
           node-version: 20
       - name: Install dependencies
         working-directory: ./debt-tracker
-        run: npm ci || npm install
+        run: npm ci --legacy-peer-deps || npm install --legacy-peer-deps
       - name: Build
         working-directory: ./debt-tracker
         run: npm run build
