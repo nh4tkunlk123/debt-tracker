@@ -85,7 +85,19 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({ isOpen, onClose, title
           <div className="bottom-sheet-handle" />
           <div className="flex justify-between items-center" style={{ flexShrink: 0 }}>
             <h3 className="font-semibold">{title}</h3>
-            <button onClick={onClose} className="p-2" style={{ backgroundColor: 'var(--bg-tertiary)', borderRadius: '50%' }}>
+            <button 
+              onClick={onClose} 
+              style={{ 
+                backgroundColor: 'var(--bg-tertiary)', 
+                borderRadius: '50%',
+                width: '32px',
+                height: '32px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}
+            >
               <X size={20} color="var(--text-secondary)" />
             </button>
           </div>

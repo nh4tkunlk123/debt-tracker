@@ -83,7 +83,13 @@ export const SettingsSheet: React.FC<SettingsSheetProps> = ({ isOpen, onClose })
               opacity: 0.5
             }}
           >
-            <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '8px', borderRadius: '50%' }}>
+            <div style={{ 
+              backgroundColor: 'var(--bg-secondary)', 
+              width: '36px', height: '36px', 
+              borderRadius: '50%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              flexShrink: 0
+            }}>
               <DollarSign size={20} color="var(--text-secondary)" />
             </div>
             <div>
