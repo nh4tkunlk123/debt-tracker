@@ -347,18 +347,40 @@ input::placeholder, textarea::placeholder {
 }
 .amount-type-toggle {
   display: flex;
-  background-color: var(--bg-tertiary);
-  border-radius: var(--radius-sm);
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
   padding: 4px;
   margin-bottom: 12px;
 }
+[data-theme="dark"] .amount-type-toggle {
+  background-color: #1c1c1e;
+}
+[data-theme="light"] .amount-type-toggle {
+  background-color: #e5e5ea;
+}
+
 .toggle-btn {
   flex: 1;
-  padding: 10px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
   text-align: center;
+  padding: 10px;
+  border-radius: 8px;
   color: var(--text-secondary);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.toggle-btn.active {
+  color: var(--text-primary);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 1px 1px rgba(0,0,0,0.05);
+}
+[data-theme="dark"] .toggle-btn.active {
+  background-color: #3a3a3c;
+}
+[data-theme="light"] .toggle-btn.active {
+  background-color: #ffffff;
 }
 .toggle-btn.active.borrow {
   background-color: var(--danger-color);

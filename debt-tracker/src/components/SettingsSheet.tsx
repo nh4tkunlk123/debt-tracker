@@ -16,7 +16,7 @@ export const SettingsSheet: React.FC<SettingsSheetProps> = ({ isOpen, onClose })
 
   return (
     <BottomSheet isOpen={isOpen} onClose={onClose} title={t('settings') || 'Cài đặt'}>
-      <div className="flex-col gap-6" style={{ marginTop: '8px' }}>
+      <div className="flex-col" style={{ marginTop: '8px', gap: '32px' }}>
         
         {/* Theme Settings */}
         <div>
@@ -26,24 +26,24 @@ export const SettingsSheet: React.FC<SettingsSheetProps> = ({ isOpen, onClose })
           <div className="amount-type-toggle" style={{ marginBottom: 0 }}>
             <div 
               className={`toggle-btn ${theme === 'light' ? 'active' : ''}`}
-              style={{ flex: 1, padding: '10px 8px', fontSize: '14px', display: 'flex', gap: '6px', justifyContent: 'center' }}
+              style={{ padding: '10px 8px', fontSize: '14px' }}
               onClick={() => { triggerHaptic('light'); setTheme('light'); }}
             >
-              <Sun size={16} /> {t('light') || 'Sáng'}
+              <Sun size={18} /> {t('light') || 'Sáng'}
             </div>
             <div 
               className={`toggle-btn ${theme === 'dark' ? 'active' : ''}`}
-              style={{ flex: 1, padding: '10px 8px', fontSize: '14px', display: 'flex', gap: '6px', justifyContent: 'center' }}
+              style={{ padding: '10px 8px', fontSize: '14px' }}
               onClick={() => { triggerHaptic('light'); setTheme('dark'); }}
             >
-              <Moon size={16} /> {t('dark') || 'Tối'}
+              <Moon size={18} /> {t('dark') || 'Tối'}
             </div>
             <div 
               className={`toggle-btn ${theme === 'system' ? 'active' : ''}`}
-              style={{ flex: 1, padding: '10px 8px', fontSize: '14px', display: 'flex', gap: '6px', justifyContent: 'center' }}
+              style={{ padding: '10px 8px', fontSize: '14px' }}
               onClick={() => { triggerHaptic('light'); setTheme('system'); }}
             >
-              <Monitor size={16} /> {t('system') || 'Tự động'}
+              <Monitor size={18} /> {t('system') || 'Tự động'}
             </div>
           </div>
         </div>
@@ -56,14 +56,14 @@ export const SettingsSheet: React.FC<SettingsSheetProps> = ({ isOpen, onClose })
           <div className="amount-type-toggle" style={{ marginBottom: 0 }}>
             <div 
               className={`toggle-btn ${lang === 'vi' ? 'active' : ''}`}
-              style={{ flex: 1, padding: '10px 8px', fontSize: '14px', display: 'flex', gap: '8px', justifyContent: 'center' }}
+              style={{ padding: '10px 8px', fontSize: '14px' }}
               onClick={() => { triggerHaptic('light'); setLang('vi'); }}
             >
               Tiếng Việt
             </div>
             <div 
               className={`toggle-btn ${lang === 'en' ? 'active' : ''}`}
-              style={{ flex: 1, padding: '10px 8px', fontSize: '14px', display: 'flex', gap: '8px', justifyContent: 'center' }}
+              style={{ padding: '10px 8px', fontSize: '14px' }}
               onClick={() => { triggerHaptic('light'); setLang('en'); }}
             >
               English
