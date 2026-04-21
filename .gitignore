@@ -1,0 +1,4 @@
+auto-mailer/
+.agent/
+.shared/
+runs.json
