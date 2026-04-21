@@ -382,11 +382,15 @@ input::placeholder, textarea::placeholder {
 [data-theme="light"] .toggle-btn.active {
   background-color: #ffffff;
 }
-.toggle-btn.active.borrow {
+.toggle-btn.active.action-blue {
+  background-color: var(--accent-color);
+  color: white;
+}
+.toggle-btn.active.action-green {
   background-color: var(--success-color);
   color: white;
 }
-.toggle-btn.active.payback {
+.toggle-btn.active.action-red {
   background-color: var(--danger-color);
   color: white;
 }

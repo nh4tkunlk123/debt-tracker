@@ -13,7 +13,7 @@ interface AddTransactionSheetProps {
 }
 
 export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen, onClose, defaultPersonId, defaultType = 'borrow' }) => {
-  const { people, addTransaction } = useDebtContext();
+  const { people, addTransaction, getPersonBalance } = useDebtContext();
   const { t } = useLanguage();
   
   const [txAmount, setTxAmount] = useState('');
@@ -73,6 +73,31 @@ export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen
     onClose();
   };
 
+  const currentBalance = selectedPersonId ? getPersonBalance(selectedPersonId) : 0;
+
+  let labelPlus = t('lend');
+  let labelMinus = t('borrow');
+  let colorPlus = 'action-blue';
+  let colorMinus = 'action-red';
+
+  if (currentBalance > 0) {
+    labelPlus = t('lendMore');
+    labelMinus = t('theyRepay');
+    colorPlus = 'action-blue';
+    colorMinus = 'action-green';
+  } else if (currentBalance < 0) {
+    labelPlus = t('iRepay');
+    labelMinus = t('borrowMore');
+    colorPlus = 'action-green';
+    colorMinus = 'action-red';
+  }
+
+  const activeColor = txType === 'borrow' ? colorPlus : colorMinus;
+  let displayColor = 'var(--text-primary)';
+  if (activeColor === 'action-blue') displayColor = 'var(--accent-color)';
+  if (activeColor === 'action-green') displayColor = 'var(--success-color)';
+  if (activeColor === 'action-red') displayColor = 'var(--danger-color)';
+
   return (
     <BottomSheet isOpen={isOpen} onClose={onClose} title={t('newTransaction')}>
       <div className="flex-col">
@@ -95,20 +120,20 @@ export const AddTransactionSheet: React.FC<AddTransactionSheetProps> = ({ isOpen
 
         <div className="amount-type-toggle">
           <div 
-            className={`toggle-btn borrow ${txType === 'borrow' ? 'active' : ''}`}
+            className={`toggle-btn ${colorPlus} ${txType === 'borrow' ? 'active' : ''}`}
             onClick={() => { triggerHaptic('light'); setTxType('borrow'); }}
           >
-            {t('borrowedPlus')}
+            {labelPlus}
           </div>
           <div 
-            className={`toggle-btn payback ${txType === 'payback' ? 'active' : ''}`}
+            className={`toggle-btn ${colorMinus} ${txType === 'payback' ? 'active' : ''}`}
             onClick={() => { triggerHaptic('light'); setTxType('payback'); }}
           >
-            {t('paidBackMinus')}
+            {labelMinus}
           </div>
         </div>
 
-        <div className="amount-display" style={{ color: txType === 'borrow' ? 'var(--success-color)' : 'var(--danger-color)' }}>
+        <div className="amount-display" style={{ color: displayColor }}>
           {txAmount ? parseInt(txAmount, 10).toLocaleString() : '0'}
         </div>
 
