@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { DebtProvider } from './store/DebtContext';
 import { LanguageProvider } from './store/LanguageContext';
 import { HomeScreen } from './screens/HomeScreen';
@@ -8,12 +8,12 @@ function App() {
   return (
     <LanguageProvider>
       <DebtProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/person/:id" element={<DetailScreen />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </DebtProvider>
     </LanguageProvider>
   );
