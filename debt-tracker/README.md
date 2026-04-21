@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# Minimalist Debt Tracker 💸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A blazing-fast, offline-first Progressive Web App (PWA) designed to track personal debts, loans, and shared expenses. Built with a focus on simplicity, speed, and a native iOS-like user experience.
 
-Currently, two official plugins are available:
+🔗 **[Live Demo](https://nh4tkunlk123.github.io/debt-tracker/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Offline-First**: Works 100% offline. All data is securely stored locally on your device. No cloud sync, no accounts, complete privacy.
+- **Progressive Web App (PWA)**: Installable on iOS and Android. Feels like a native app with gesture-based interactions (swipe-to-dismiss) and iOS safe-area notch support.
+- **Context-Aware UI**: The transaction interface intelligently adapts its terminology (e.g., "Lent", "Borrowed", "Repaid") and colors based on the current context of your balance.
+- **Dual Theme Support**: Beautifully crafted Light and Dark modes with automatic system-preference fallback.
+- **Multi-language**: Fully localized in English and Vietnamese.
+- **Zero Dependencies Clutter**: Built using vanilla CSS and native APIs to keep the bundle size extremely lightweight.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tech Stack
 
-## Expanding the ESLint configuration
+- **Core**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: Vanilla CSS (CSS Variables, Flexbox)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **PWA Integration**: `vite-plugin-pwa`
+- **Deployment**: GitHub Actions -> GitHub Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+To run this project locally on your machine:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+```bash
+git clone https://github.com/nh4tkunlk123/debt-tracker.git
+cd debt-tracker
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Install dependencies
+```bash
+npm install
+# Note: Use `npm install --legacy-peer-deps` if you encounter PWA plugin peer conflicts.
 ```
+
+### 3. Start the development server
+```bash
+npm run dev
+```
+
+### 4. Build for production
+```bash
+npm run build
+```
+
+## 💡 Motivation
+
+This app was built to solve the common UX flaws in traditional ledger apps. Instead of forcing the user to think in abstract positive/negative numbers, the UI dynamically changes to reflect real-world financial relationships (e.g., automatically switching the button from "Lent" to "Repaid" based on who owes who).
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
