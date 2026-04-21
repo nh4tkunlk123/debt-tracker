@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useDebtContext } from '../store/DebtContext';
 import { useLanguage } from '../store/LanguageContext';
+import { useTheme } from '../store/ThemeContext';
 import { PersonCard } from '../components/PersonCard';
 import { BottomSheet } from '../components/BottomSheet';
 import { AddTransactionSheet } from '../components/AddTransactionSheet';
-import { Plus, Users, Zap, Globe } from 'lucide-react';
+import { Plus, Users, Zap, Globe, Sun, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { triggerHaptic } from '../utils/haptics';
 
 export const HomeScreen: React.FC = () => {
   const { people, getPersonBalance, getTotalLent, addPerson, addTransaction, lastUsedPersonId } = useDebtContext();
   const { t, lang, setLang } = useLanguage();
+  const { isDark, setTheme } = useTheme();
   const [isAddPersonOpen, setIsAddPersonOpen] = useState(false);
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
   const [newPersonName, setNewPersonName] = useState('');
@@ -54,6 +56,12 @@ export const HomeScreen: React.FC = () => {
         <div className="flex justify-between items-center" style={{ marginBottom: '8px' }}>
           <h1>{t('appTitle')}</h1>
           <div className="flex items-center gap-4">
+            <button 
+              onClick={() => { triggerHaptic('light'); setTheme(isDark ? 'light' : 'dark'); }}
+              style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center' }}
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button 
               onClick={toggleLang}
               style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '14px', fontWeight: 'bold' }}

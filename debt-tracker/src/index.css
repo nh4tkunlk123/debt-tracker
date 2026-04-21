@@ -28,12 +28,42 @@
   --transition-normal: 0.3s ease;
 }
 
-/* Light mode support */
-@media (prefers-color-scheme: light) {
-  /* Uncomment to force dark mode only, or leave to support system theme. 
-     User requested "Dark mode by default", so let's stick to dark for both for now, 
-     or just let standard iOS theming apply if they switch. Let's force dark mode if they 
-     said "by default" but this implies they want dark theme heavily. We'll set the base to dark. */
+[data-theme="light"] {
+  --bg-primary: #f2f2f7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e5e5ea;
+  
+  --text-primary: #000000;
+  --text-secondary: #8e8e93;
+  --text-tertiary: #a1a1a6;
+  
+  --accent-color: #007aff;
+  --success-color: #34c759;
+  --danger-color: #ff3b30;
+  
+  --border-color: #c6c6c8;
+  
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-secondary: #1c1c1e;
+  --bg-tertiary: #2c2c2e;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #8e8e93;
+  --text-tertiary: #636366;
+  
+  --accent-color: #0a84ff;
+  --success-color: #30d158;
+  --danger-color: #ff453a;
+  
+  --border-color: #38383a;
+  
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 /* Base Styles */
@@ -282,9 +312,7 @@ input::placeholder, textarea::placeholder {
   padding: calc(20px + env(safe-area-inset-top)) 20px 10px 20px;
   position: sticky;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: var(--bg-primary);
   z-index: 20;
 }
 
