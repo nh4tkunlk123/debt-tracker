@@ -1,80 +1,57 @@
-# Google Antigravity
+# Sổ Ghi Nợ (Minimalist Debt Tracker) 💸
 
-[English](./README.md) | [Tiếng Việt](./README.vi.md)
+A blazing-fast, offline-first Progressive Web App (PWA) designed to track personal debts, loans, and shared expenses. Built with a focus on simplicity, speed, and a native iOS-like user experience.
 
-> **The Ultimate AI Agent Brain.**  
-> *A comprehensive collection of Rules, Skills, and Workflows for modern AI Agents.*
+🔗 **[Live Demo](https://nh4tkunlk123.github.io/debt-tracker/)**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## ✨ Features
 
-**Google Antigravity** is the core intelligence engine for building AI Agents. It provides a CLI tool (`npx`) to instantly scaffold agent-ready projects equipped with comprehensive professional skills and robust operational rules.
+- **Offline-First**: Works 100% offline. All data is securely stored locally on your device. No cloud sync, no accounts, complete privacy.
+- **Progressive Web App (PWA)**: Installable on iOS and Android. Feels like a native app with gesture-based interactions (swipe-to-dismiss) and iOS safe-area notch support.
+- **Context-Aware UI**: The transaction interface intelligently adapts its terminology (e.g., "Lent", "Borrowed", "Repaid") and colors based on the current context of your balance.
+- **Dual Theme Support**: Beautifully crafted Light and Dark modes with automatic system-preference fallback.
+- **Multi-language**: Fully localized in English and Vietnamese.
+- **Zero Dependencies Clutter**: Built using vanilla CSS and native APIs to keep the bundle size extremely lightweight.
 
-| **20+** Master Skills | **15+** Specialist Agents | **11** Workflows | **13** Shared Modules |
-| :---: | :---: | :---: | :---: |
-| Full-Stack Capabilities | Role-Based Personas | Development Processes | Reusable Standards |
+## 🛠 Tech Stack
 
-## 📦 Installation
+- **Core**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: Vanilla CSS (CSS Variables, Flexbox)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **PWA Integration**: `vite-plugin-pwa`
+- **Deployment**: GitHub Actions -> GitHub Pages
 
-### Quick Start
+## 🚀 Getting Started
 
-Run the following command:
+This repository contains the `debt-tracker` app. To run this project locally on your machine:
 
-```sh
-# Option 1: Create a new project folder
-npx antigravity-ide my-agent-project
-
-# Option 2: Install in the current directory (Smart Install)
-npx antigravity-ide
+### 1. Clone the repository
+```bash
+git clone https://github.com/nh4tkunlk123/debt-tracker.git
+cd debt-tracker/debt-tracker
 ```
 
-Follow the interactive setup:
-1.  **Agent Engine**: Choose **Standard (Node.js)** for lightweight tasks or **Advanced (Python)** for AI/Data Science.
-2.  **Industry Domain**: Select your field (Finance, Education, etc.) to optimize the Agent's focus and skills.
-
-```sh
-npx antigravity-ide my-project --skip-prompts
+### 2. Install dependencies
+```bash
+npm install
+# Note: Use `npm install --legacy-peer-deps` if you encounter PWA plugin peer conflicts.
 ```
 
-### Update to Latest Version
-
-Keep your Antigravity IDE up to date with the latest skills and brain features:
-
-```sh
-npx antigravity-ide update
+### 3. Start the development server
+```bash
+npm run dev
 ```
 
-## 🤖 AI Model Compatibility
-
-**Google Antigravity** is designed to be the "Brain" for any AI model.
-
-- **Google Gemini**: Fully compatible with 2M context window.
-- **Anthropic Claude**: Optimized reasoning with `.agent` rules.
-- **OpenAI GPT-4**: Standardized skill formats.
-
-👉 **See [GEMINI.md](./GEMINI.md) for integration guides.**
-
-## 🚀 Core Features
-
-### 🧠 **The Agent Brain (.agent)**
-The heart of the system is the `.agent` folder, which contains:
-- **Professional Skills**: Production-ready capabilities for Development, DevOps, Security, and Data interactions.
-- **Universal Compatibility**: Optimized for **Gemini Pro**, **Claude 3.5 Sonnet**, and **GPT-4o**.
-- **Operational Rules**: Pre-defined protocols for safe and effective agent behavior.
-
-### ⚡ **Project Scaffolding (CLI)**
-A smart CLI tool to bootstrap new projects:
-- **Smart Install**: Detects context to install in current directory or create a new one.
-- **Agent Engines**: **Standard** (Node.js, lightweight) or **Advanced** (Python, full-power).
-- **Industry Intelligence**: Installs all professional skills but prioritizes your specific domain (Finance, Logistics, etc.) in the Agent's configuration.
-- **Fast**: Minimal footprint, intelligent filtering.
-
-## 📂 Project Structure
-
-```text
-antigravity-ide/
-├── .agent/           # 🧠 THE BRAIN: Configs & 550+ Skills
-└── cli/              # ⚡ CLI TOOL: Project Scaffolding
+### 4. Build for production
+```bash
+npm run build
 ```
 
----
-*Created with ❤️ by Dokhacgiakhoa*
+## 💡 Motivation
+
+This app was built to solve the common UX flaws in traditional ledger apps. Instead of forcing the user to think in abstract positive/negative numbers, the UI dynamically changes to reflect real-world financial relationships (e.g., automatically switching the button from "Lent" to "Repaid" based on who owes who).
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
