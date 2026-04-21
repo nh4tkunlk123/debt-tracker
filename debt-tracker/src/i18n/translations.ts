@@ -38,7 +38,15 @@ export const translations = {
     settled: 'Đã thanh toán',
     repayment: 'Trả nợ',
     initialBalance: 'Số dư ban đầu',
-    balance: 'Số dư'
+    balance: 'Số dư',
+    settings: 'Cài đặt',
+    theme: 'Giao diện',
+    language: 'Ngôn ngữ',
+    currencyFormat: 'Định dạng tiền tệ',
+    comingSoon: 'Sắp ra mắt',
+    light: 'Sáng',
+    dark: 'Tối',
+    system: 'Hệ thống'
   },
   en: {
     appTitle: 'Debt Tracker',
@@ -79,7 +87,15 @@ export const translations = {
     settled: 'Settled',
     repayment: 'Repayment',
     initialBalance: 'Initial Balance',
-    balance: 'Balance'
+    balance: 'Balance',
+    settings: 'Settings',
+    theme: 'Theme',
+    language: 'Language',
+    currencyFormat: 'Currency Format',
+    comingSoon: 'Coming Soon',
+    light: 'Light',
+    dark: 'Dark',
+    system: 'System'
   }
 };
 

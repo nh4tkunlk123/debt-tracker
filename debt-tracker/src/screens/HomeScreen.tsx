@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDebtContext } from '../store/DebtContext';
 import { useLanguage } from '../store/LanguageContext';
-import { useTheme } from '../store/ThemeContext';
 import { PersonCard } from '../components/PersonCard';
 import { BottomSheet } from '../components/BottomSheet';
 import { AddTransactionSheet } from '../components/AddTransactionSheet';
@@ -12,8 +11,7 @@ import { triggerHaptic } from '../utils/haptics';
 
 export const HomeScreen: React.FC = () => {
   const { people, getPersonBalance, getTotalLent, addPerson, addTransaction, lastUsedPersonId } = useDebtContext();
-  const { t, lang, setLang } = useLanguage();
-  const { isDark, setTheme } = useTheme();
+  const { t } = useLanguage();
   const [isAddPersonOpen, setIsAddPersonOpen] = useState(false);
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -45,11 +43,6 @@ export const HomeScreen: React.FC = () => {
     setInitialAmount('');
     setInitialAmountType('borrow');
     setIsAddPersonOpen(false);
-  };
-
-  const toggleLang = () => {
-    triggerHaptic('light');
-    setLang(lang === 'vi' ? 'en' : 'vi');
   };
 
   return (
